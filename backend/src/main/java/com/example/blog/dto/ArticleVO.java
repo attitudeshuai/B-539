@@ -15,6 +15,7 @@ public class ArticleVO {
     private List<Tag> tags;
     private Integer status;
     private Integer viewCount;
+    private Long commentCount;
     private LocalDateTime createTime;
     private LocalDateTime updateTime;
 }
