@@ -32,6 +32,8 @@ request.interceptors.response.use(response => {
         ElMessage.error('Please login first')
         localStorage.removeItem('token')
         router.push('/login')
+    } else if (error.response && error.response.status === 429) {
+        ElMessage.error(error.response.data.message || '请求过于频繁，请稍后再试')
     } else {
         ElMessage.error(error.message || 'Network Error')
     }

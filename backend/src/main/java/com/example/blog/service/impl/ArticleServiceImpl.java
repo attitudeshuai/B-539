@@ -8,6 +8,7 @@ import com.example.blog.dto.ArticleVO;
 import com.example.blog.entity.*;
 import com.example.blog.mapper.*;
 import com.example.blog.service.ArticleService;
+import com.example.blog.service.CommentService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,6 +29,8 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
     private CategoryMapper categoryMapper;
     @Autowired
     private TagMapper tagMapper;
+    @Autowired
+    private CommentService commentService;
 
     @Override
     @Transactional(rollbackFor = Exception.class)
@@ -128,6 +131,7 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
         } else {
             vo.setTags(new ArrayList<>());
         }
+        vo.setCommentCount(commentService.getApprovedCommentCount(article.getId()));
         return vo;
     }
 }

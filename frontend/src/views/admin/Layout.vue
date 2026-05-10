@@ -24,6 +24,10 @@
           <el-icon><Collection /></el-icon>
           <span>标签管理</span>
         </el-menu-item>
+        <el-menu-item index="/admin/comment">
+          <el-icon><ChatDotRound /></el-icon>
+          <span>评论管理</span>
+        </el-menu-item>
         <el-menu-item index="/admin/user" v-if="role == 1">
           <el-icon><User /></el-icon>
           <span>用户管理</span>
