@@ -54,6 +54,7 @@
              <div class="mt-auto pt-4 border-t border-gray-50 flex items-center justify-between text-xs text-gray-400 font-medium uppercase tracking-wide">
                <span class="flex items-center gap-1"><el-icon><Calendar /></el-icon> {{ formatTime(article.createTime) }}</span>
                <span class="flex items-center gap-1"><el-icon><View /></el-icon> {{ article.viewCount }}</span>
+               <span class="flex items-center gap-1"><el-icon><ChatDotSquare /></el-icon> {{ article.commentCount || 0 }}</span>
              </div>
           </div>
         </div>
