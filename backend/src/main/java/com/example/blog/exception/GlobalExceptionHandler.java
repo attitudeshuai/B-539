@@ -14,4 +14,9 @@ public class GlobalExceptionHandler {
         log.error("系统异常", e);
         return Result.error(500, e.getMessage());
     }
+
+    @ExceptionHandler(org.springframework.web.bind.MissingPathVariableException.class)
+    public Result<String> handleMissingPath(Exception e) {
+        return Result.error(400, "路径参数缺失");
+    }
 }

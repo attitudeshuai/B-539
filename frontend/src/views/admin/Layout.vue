@@ -28,6 +28,10 @@
           <el-icon><User /></el-icon>
           <span>用户管理</span>
         </el-menu-item>
+        <el-menu-item index="/admin/comment">
+          <el-icon><ChatDotSquare /></el-icon>
+          <span>评论管理</span>
+        </el-menu-item>
         <el-menu-item index="/" @click="logout">
           <el-icon><SwitchButton /></el-icon>
           <span>退出后台</span>
