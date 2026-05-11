@@ -54,6 +54,21 @@ CREATE TABLE `article_tag` (
   PRIMARY KEY (`article_id`,`tag_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+DROP TABLE IF EXISTS `comment`;
+CREATE TABLE `comment` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `article_id` bigint(20) NOT NULL COMMENT '文章ID',
+  `nickname` varchar(50) NOT NULL COMMENT '昵称',
+  `email` varchar(100) NOT NULL COMMENT '邮箱',
+  `content` text NOT NULL COMMENT '评论内容',
+  `status` tinyint(4) DEFAULT 0 COMMENT '0:待审核,1:通过,2:拒绝',
+  `ip` varchar(50) DEFAULT NULL COMMENT 'IP地址',
+  `create_time` datetime DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `idx_article_id` (`article_id`),
+  KEY `idx_status` (`status`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 -- Initial Data
 INSERT INTO `category` (`name`) VALUES ('技术'), ('生活'), ('旅行');
 INSERT INTO `tag` (`name`) VALUES ('Java'), ('Vue'), ('Docker');

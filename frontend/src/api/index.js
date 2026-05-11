@@ -22,3 +22,9 @@ export const deleteTag = (id) => request.delete(`/tag/delete/${id}`)
 
 export const getUserPage = (params) => request.get('/user/page', { params })
 export const deleteUser = (id) => request.delete(`/user/delete/${id}`)
+
+export const addComment = (data) => request.post('/comment/add', data)
+export const getArticleComments = (articleId) => request.get(`/comment/article/${articleId}`)
+export const getCommentPage = (params) => request.get('/comment/page', { params })
+export const approveComment = (id) => request.put(`/comment/approve/${id}`)
+export const rejectComment = (id) => request.put(`/comment/reject/${id}`)
